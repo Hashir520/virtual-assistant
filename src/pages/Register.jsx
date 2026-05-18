@@ -86,168 +86,168 @@ const Register = () => {
 </div>
                         
                         {/* Glassmorphism Card */}
-                        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8">
-                            <div className="text-center lg:text-left mb-6">
-                                <h1 className="text-2xl text-center sm:text-3xl font-bold text-gray-900 mb-2">
-                                    Create an account
-                                </h1>
-                                <p className="text-gray-500 text-center text-sm sm:text-base">
-                                    Join thousands of users using AVA
-                                </p>
-                            </div>
+    <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-5 sm:p-6 border border-white/20">
+    <div className="text-center lg:text-left mb-4">
+        <h1 className="text-xl text-center sm:text-2xl font-bold text-white mb-1">
+            Create an account
+        </h1>
+        <p className="text-blue-100 text-center text-xs sm:text-sm">
+            Join thousands of users using AVA
+        </p>
+    </div>
 
-                            {/* Form */}
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                {/* Name Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Full name
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FiUser className="h-5 w-5 text-gray-400" />
-                                        </div>
-                                        <input
-                                            type="text"
-                                            required
-                                            value={name}
-                                            onFocus={() => setFocusedField('name')}
-                                            onBlur={() => setFocusedField(null)}
-                                            onChange={(e) => setName(e.target.value)}
-                                            className="block w-full pl-10 pr-3 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                                            placeholder="John Doe"
-                                        />
-                                    </div>
-                                </div>
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="space-y-3">
+        {/* Name Field */}
+        <div>
+            <label className="block text-xs font-medium text-blue-100 mb-1">
+                Full name
+            </label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiUser className="h-4 w-4 text-blue-200" />
+                </div>
+                <input
+                    type="text"
+                    required
+                    value={name}
+                    onFocus={() => setFocusedField('name')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={(e) => setName(e.target.value)}
+                    className="block w-full pl-9 pr-3 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-sm text-white placeholder:text-white/50"
+                    placeholder="John Doe"
+                />
+            </div>
+        </div>
 
-                                {/* Email Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Email address
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FiMail className="h-5 w-5 text-gray-400" />
-                                        </div>
-                                        <input
-                                            type="email"
-                                            required
-                                            value={email}
-                                            onFocus={() => setFocusedField('email')}
-                                            onBlur={() => setFocusedField(null)}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            className="block w-full pl-10 pr-3 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                                            placeholder="you@example.com"
-                                        />
-                                    </div>
-                                </div>
+        {/* Email Field */}
+        <div>
+            <label className="block text-xs font-medium text-blue-100 mb-1">
+                Email address
+            </label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiMail className="h-4 w-4 text-blue-200" />
+                </div>
+                <input
+                    type="email"
+                    required
+                    value={email}
+                    onFocus={() => setFocusedField('email')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="block w-full pl-9 pr-3 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-sm text-white placeholder:text-white/50"
+                    placeholder="you@example.com"
+                />
+            </div>
+        </div>
 
-                                {/* Password Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Password
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FiLock className="h-5 w-5 text-gray-400" />
-                                        </div>
-                                        <input
-                                            type={showPassword ? "text" : "password"}
-                                            required
-                                            value={password}
-                                            onFocus={() => setFocusedField('password')}
-                                            onBlur={() => setFocusedField(null)}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            className="block w-full pl-10 pr-10 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                                            placeholder="At least 6 characters"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                                        >
-                                            {showPassword ? 
-                                                <FiEyeOff className="h-5 w-5 text-gray-400" /> : 
-                                                <FiEye className="h-5 w-5 text-gray-400" />
-                                            }
-                                        </button>
-                                    </div>
-                                    <p className="text-xs text-gray-500 mt-1">Must be at least 6 characters</p>
-                                </div>
+        {/* Password Field */}
+        <div>
+            <label className="block text-xs font-medium text-blue-100 mb-1">
+                Password
+            </label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiLock className="h-4 w-4 text-blue-200" />
+                </div>
+                <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={password}
+                    onFocus={() => setFocusedField('password')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="block w-full pl-9 pr-9 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-sm text-white placeholder:text-white/50"
+                    placeholder="At least 6 characters"
+                />
+                <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                    {showPassword ? 
+                        <FiEyeOff className="h-4 w-4 text-blue-200 hover:text-white" /> : 
+                        <FiEye className="h-4 w-4 text-blue-200 hover:text-white" />
+                    }
+                </button>
+            </div>
+            <p className="text-xs text-blue-200 mt-0.5">Must be at least 6 characters</p>
+        </div>
 
-                                {/* Confirm Password Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Confirm password
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FiLock className="h-5 w-5 text-gray-400" />
-                                        </div>
-                                        <input
-                                            type={showConfirmPassword ? "text" : "password"}
-                                            required
-                                            value={confirmPassword}
-                                            onFocus={() => setFocusedField('confirm')}
-                                            onBlur={() => setFocusedField(null)}
-                                            onChange={(e) => setConfirmPassword(e.target.value)}
-                                            className="block w-full pl-10 pr-10 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                                            placeholder="Confirm your password"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                            className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                                        >
-                                            {showConfirmPassword ? 
-                                                <FiEyeOff className="h-5 w-5 text-gray-400" /> : 
-                                                <FiEye className="h-5 w-5 text-gray-400" />
-                                            }
-                                        </button>
-                                    </div>
-                                </div>
+        {/* Confirm Password Field */}
+        <div>
+            <label className="block text-xs font-medium text-blue-100 mb-1">
+                Confirm password
+            </label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiLock className="h-4 w-4 text-blue-200" />
+                </div>
+                <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    required
+                    value={confirmPassword}
+                    onFocus={() => setFocusedField('confirm')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="block w-full pl-9 pr-9 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-sm text-white placeholder:text-white/50"
+                    placeholder="Confirm your password"
+                />
+                <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                    {showConfirmPassword ? 
+                        <FiEyeOff className="h-4 w-4 text-blue-200 hover:text-white" /> : 
+                        <FiEye className="h-4 w-4 text-blue-200 hover:text-white" />
+                    }
+                </button>
+            </div>
+        </div>
 
-                                {/* Submit Button */}
-                                <button
-                                    type="submit"
-                                    disabled={loading}
-                                    className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25 text-base"
-                                >
-                                    {loading ? (
-                                        <>
-                                            <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                                            Creating account...
-                                        </>
-                                    ) : (
-                                        <>
-                                            Get Started
-                                            <FiArrowRight className="h-5 w-5" />
-                                        </>
-                                    )}
-                                </button>
+        {/* Submit Button */}
+        <button
+            type="submit"
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25 text-sm"
+        >
+            {loading ? (
+                <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                    Creating account...
+                </>
+            ) : (
+                <>
+                    Get Started
+                    <FiArrowRight className="h-4 w-4" />
+                </>
+            )}
+        </button>
 
-                                {/* Divider */}
-                                <div className="relative my-6">
-                                    <div className="absolute inset-0 flex items-center">
-                                        <div className="w-full border-t border-gray-200"></div>
-                                    </div>
-                                    <div className="relative flex justify-center text-sm">
-                                        <span className="px-4 bg-white text-gray-500">Already have an account?</span>
-                                    </div>
-                                </div>
+        {/* Divider */}
+        <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-white/20"></div>
+            </div>
+            <div className="relative flex justify-center text-xs">
+                <span className="px-4 bg-transparent text-blue-100">Already have an account?</span>
+            </div>
+        </div>
 
-                                {/* Login Link */}
-                                <div className="text-center pb-2">
-                                    <Link 
-                                        to="/login" 
-                                        className="inline-flex items-center gap-1 text-blue-600 font-medium hover:text-blue-700 transition-colors group text-sm sm:text-base"
-                                    >
-                                        Sign In 
-                                        <FiArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                </div>
-                            </form>
-                        </div>
+        {/* Login Link */}
+        <div className="text-center pb-1">
+            <Link 
+                to="/login" 
+                className="inline-flex items-center gap-1 text-blue-300 font-medium hover:text-white transition-colors group text-sm"
+            >
+                Sign In 
+                <FiArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+            </Link>
+        </div>
+    </form>
+</div>
                     </div>
                 </div>
 

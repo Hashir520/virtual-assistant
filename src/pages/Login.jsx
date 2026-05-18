@@ -71,117 +71,117 @@ const Login = () => {
                         </div>
                         
                         {/* Glassmorphism Card */}
-                        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8">
-                            <div className="text-center lg:text-left mb-6">
-                                <h1 className="text-2xl text-center sm:text-3xl font-bold text-gray-900 mb-2">
-                                    Welcome back
-                                </h1>
-                                <p className="text-gray-500 text-center text-sm sm:text-base">
-                                    Sign in to continue with AVA
-                                </p>
-                            </div>
+                     <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8 border border-white/20">
+    <div className="text-center lg:text-left mb-6">
+        <h1 className="text-2xl text-center sm:text-3xl font-bold text-white mb-2">
+            Welcome back
+        </h1>
+        <p className="text-blue-100 text-center text-sm sm:text-base">
+            Sign in to continue with AVA
+        </p>
+    </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                {/* Email Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Email address
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FiMail className="h-5 w-5 text-gray-400" />
-                                        </div>
-                                        <input
-                                            type="email"
-                                            required
-                                            value={email}
-                                            onFocus={() => setFocusedField('email')}
-                                            onBlur={() => setFocusedField(null)}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            className="block w-full pl-10 pr-3 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                                            placeholder="you@example.com"
-                                        />
-                                    </div>
-                                </div>
+    <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Email Field */}
+        <div>
+            <label className="block text-sm font-medium text-blue-100 mb-1">
+                Email address
+            </label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiMail className="h-5 w-5 text-blue-200" />
+                </div>
+                <input
+                    type="email"
+                    required
+                    value={email}
+                    onFocus={() => setFocusedField('email')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="block w-full pl-10 pr-3 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-base text-white placeholder:text-white/50"
+                    placeholder="you@example.com"
+                />
+            </div>
+        </div>
 
-                                {/* Password Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Password
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FiLock className="h-5 w-5 text-gray-400" />
-                                        </div>
-                                        <input
-                                            type={showPassword ? "text" : "password"}
-                                            required
-                                            value={password}
-                                            onFocus={() => setFocusedField('password')}
-                                            onBlur={() => setFocusedField(null)}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            className="block w-full pl-10 pr-10 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                                            placeholder="Enter your password"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                                        >
-                                            {showPassword ? 
-                                                <FiEyeOff className="h-5 w-5 text-gray-400" /> : 
-                                                <FiEye className="h-5 w-5 text-gray-400" />
-                                            }
-                                        </button>
-                                    </div>
-                                    <div className="text-right mt-1">
-                                        <Link to="/forgot-password" className="text-xs text-blue-600 hover:text-blue-700">
-                                            Forgot password?
-                                        </Link>
-                                    </div>
-                                </div>
+        {/* Password Field */}
+        <div>
+            <label className="block text-sm font-medium text-blue-100 mb-1">
+                Password
+            </label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiLock className="h-5 w-5 text-blue-200" />
+                </div>
+                <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={password}
+                    onFocus={() => setFocusedField('password')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="block w-full pl-10 pr-10 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-base text-white placeholder:text-white/50"
+                    placeholder="Enter your password"
+                />
+                <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                    {showPassword ? 
+                        <FiEyeOff className="h-5 w-5 text-blue-200 hover:text-white" /> : 
+                        <FiEye className="h-5 w-5 text-blue-200 hover:text-white" />
+                    }
+                </button>
+            </div>
+            <div className="text-right mt-1">
+                <Link to="/forgot-password" className="text-xs text-blue-300 hover:text-white transition-colors">
+                    Forgot password?
+                </Link>
+            </div>
+        </div>
 
-                                {/* Submit Button */}
-                                <button
-                                    type="submit"
-                                    disabled={loading}
-                                    className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25 text-base"
-                                >
-                                    {loading ? (
-                                        <>
-                                            <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                                            Signing in...
-                                        </>
-                                    ) : (
-                                        <>
-                                            Sign in
-                                            <FiLogIn className="h-5 w-5" />
-                                        </>
-                                    )}
-                                </button>
+        {/* Submit Button */}
+        <button
+            type="submit"
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25 text-base"
+        >
+            {loading ? (
+                <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                    Signing in...
+                </>
+            ) : (
+                <>
+                    Sign in
+                    <FiLogIn className="h-5 w-5" />
+                </>
+            )}
+        </button>
 
-                                {/* Divider */}
-                                <div className="relative my-6">
-                                    <div className="absolute inset-0 flex items-center">
-                                        <div className="w-full border-t border-gray-200"></div>
-                                    </div>
-                                    <div className="relative flex justify-center text-sm">
-                                        <span className="px-4 bg-white text-gray-500">New to AVA?</span>
-                                    </div>
-                                </div>
+        {/* Divider */}
+        <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-white/20"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+                <span className="px-4 bg-transparent text-blue-100">New to AVA?</span>
+            </div>
+        </div>
 
-                                {/* Register Link */}
-                                <div className="text-center pb-2">
-                                    <Link 
-                                        to="/register" 
-                                        className="inline-flex items-center gap-1 text-blue-600 font-medium hover:text-blue-700 transition-colors group text-sm sm:text-base"
-                                    >
-                                        Create a new account
-                                        <FiArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                </div>
-                            </form>
-                        </div>
+        {/* Register Link */}
+        <div className="text-center pb-2">
+            <Link 
+                to="/register" 
+                className="inline-flex items-center gap-1 text-blue-300 font-medium hover:text-white transition-colors group text-sm sm:text-base"
+            >
+                Create a new account
+                <FiArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+        </div>
+    </form>
+</div>
                     </div>
                 </div>
 

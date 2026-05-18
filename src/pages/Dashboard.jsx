@@ -190,23 +190,34 @@ const Dashboard = () => {
                     </div>
 
                     {/* Features Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                        {features.map((feature, index) => (
-                            <div
-                                key={index}
-                                onClick={feature.action}
-                                className={`${feature.color} backdrop-blur-sm rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl border ${feature.border} bg-white/90`}
-                            >
-                                <div className="flex flex-col items-center text-center">
-                                    <div className="p-3 rounded-full bg-white shadow-md">
-                                        {feature.icon}
-                                    </div>
-                                    <h3 className="font-semibold text-gray-900 mt-4">{feature.title}</h3>
-                                    <p className="text-sm text-gray-600 mt-2">{feature.description}</p>
-                                </div>
-                            </div>
-                        ))}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    {features.map((feature, index) => (
+        <div
+            key={index}
+            onClick={feature.action}
+            className="group bg-white/5 backdrop-blur-sm rounded-xl p-5 cursor-pointer transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-xl border border-white/10 hover:border-blue-500/30"
+        >
+            <div className="flex flex-col items-center text-center">
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300">
+                    <div className="text-xl">
+                        {feature.icon}
                     </div>
+                </div>
+                
+                {/* Title */}
+                <h3 className="font-medium text-white text-sm mb-1">
+                    {feature.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-white/40 text-xs">
+                    {feature.description}
+                </p>
+            </div>
+        </div>
+    ))}
+</div>
 
                     {/* AI Tip of the Day */}
                     {/* <div className="mt-8">

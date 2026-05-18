@@ -5,7 +5,7 @@ import { chatAPI } from '../services/api';
 import Sidebar from '../components/Sidebar';
 import ChatMessage from '../components/ChatMessage';
 import TypingIndicator from '../components/TypingIndicator';
-import { FiMenu, FiSend, FiMoreVertical, FiPaperclip, FiMic, FiSmile, FiHelpCircle, FiInfo, FiPlus } from 'react-icons/fi';
+import { FiMenu, FiSend, FiMoreVertical, FiPaperclip, FiMic, FiSmile, FiHelpCircle, FiInfo, FiPlus, FiSearch } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 
 const Chat = () => {
@@ -133,73 +133,26 @@ const Chat = () => {
     };
 
     return (
-        <div className="h-screen flex overflow-hidden relative">
-            {/* 🔥 EXTRAORDINARY AI BACKGROUND 🔥 */}
+        <div className="h-screen flex overflow-hidden relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
+            {/* Professional Background */}
             <div className="fixed inset-0">
-                {/* Main Background Image */}
+                {/* Background Image with proper cover */}
                 <div 
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: 'url("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format")',
+                        backgroundImage: 'url("https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1600")',
+                        backgroundAttachment: 'fixed'
                     }}
                 ></div>
                 
-                {/* Gradient Overlay Layers */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-blue-900/70 to-purple-900/80"></div>
+                {/* Professional Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/75 to-purple-900/85"></div>
                 
-                {/* Animated Gradient Mesh */}
-                <div className="absolute inset-0">
-                    <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000"></div>
-                    <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-500"></div>
-                </div>
-                
-                {/* Circuit Pattern Overlay */}
-                <div className="absolute inset-0 opacity-10" style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.5'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                    backgroundSize: '50px 50px'
+                {/* Subtle Grid Pattern */}
+                <div className="absolute inset-0 opacity-5" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundSize: '30px 30px'
                 }}></div>
-                
-                {/* Floating Particles */}
-                <div className="absolute inset-0 overflow-hidden">
-                    {[...Array(60)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="absolute rounded-full bg-white/10 animate-float"
-                            style={{
-                                width: Math.random() * 4 + 1 + 'px',
-                                height: Math.random() * 4 + 1 + 'px',
-                                top: Math.random() * 100 + '%',
-                                left: Math.random() * 100 + '%',
-                                animationDelay: Math.random() * 8 + 's',
-                                animationDuration: Math.random() * 5 + 3 + 's',
-                                opacity: Math.random() * 0.5 + 0.2
-                            }}
-                        />
-                    ))}
-                </div>
-                
-                {/* Neural Network Lines */}
-                <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
-                    <defs>
-                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#3b82f6" />
-                            <stop offset="100%" stopColor="#8b5cf6" />
-                        </linearGradient>
-                    </defs>
-                    {[...Array(15)].map((_, i) => (
-                        <line
-                            key={i}
-                            x1={`${Math.random() * 100}%`}
-                            y1={`${Math.random() * 100}%`}
-                            x2={`${Math.random() * 100}%`}
-                            y2={`${Math.random() * 100}%`}
-                            stroke="url(#lineGrad)"
-                            strokeWidth="0.5"
-                            strokeDasharray="4 4"
-                        />
-                    ))}
-                </svg>
             </div>
 
             {/* Sidebar */}
@@ -219,96 +172,116 @@ const Chat = () => {
             {/* Overlay */}
             {sidebarOpen && (
                 <div 
-                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-20 lg:hidden"
+                    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-20 lg:hidden"
                     onClick={() => setSidebarOpen(false)}
                 />
             )}
             
             {/* Main Chat Area */}
             <div className="flex-1 flex flex-col w-full lg:ml-0 overflow-hidden relative z-10">
-                {/* Header - Glassmorphism */}
-                <div className="bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-2xl">
-                    <div className="px-4 py-4 flex items-center justify-between">
+                {/* Header - Professional Glassmorphism */}
+                <div className="bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-xl">
+                    <div className="px-6 py-4 flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <button 
                                 onClick={() => setSidebarOpen(true)}
-                                className="lg:hidden text-white hover:text-blue-300 p-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+                                className="lg:hidden text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-all duration-300"
                             >
                                 <FiMenu size={22} />
                             </button>
                             <div className="flex items-center gap-3">
                                 <div className="relative">
-                                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-2xl">
+                                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                                         <span className="text-white font-bold text-lg">A</span>
                                     </div>
-                                    <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                                    <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white/20 animate-pulse"></div>
                                 </div>
                                 <div>
-                                    <h1 className="text-lg font-bold text-white">AVA Assistant</h1>
-                                    <div className="flex items-center gap-1">
-                                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                                        <p className="text-xs text-white/70">AI Ready • 24/7 Online</p>
-                                    </div>
+                                    <h1 className="text-white font-semibold text-lg">AVA Assistant</h1>
+                                    <p className="text-white/50 text-xs">AI Ready • 24/7 Online</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <button className="p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300">
-                                <FiHelpCircle size={20} />
+                        <div className="flex items-center gap-1">
+                            <button className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300">
+                                <FiHelpCircle size={18} />
                             </button>
-                            <button className="p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300">
-                                <FiInfo size={20} />
+                            <button className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300">
+                                <FiInfo size={18} />
                             </button>
-                            <button className="p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300">
-                                <FiMoreVertical size={20} />
+                            <button className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300">
+                                <FiMoreVertical size={18} />
                             </button>
                         </div>
                     </div>
                 </div>
 
                 {/* Messages Area */}
-                <div className="flex-1 overflow-y-auto px-4 py-6 scroll-smooth">
+                <div className="flex-1 overflow-y-auto px-6 py-6 scroll-smooth">
                     {loading ? (
                         <div className="flex justify-center items-center h-full">
-                            <div className="flex flex-col items-center gap-3">
-                                <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-400 border-t-white"></div>
-                                <p className="text-white/70 text-sm">Loading conversation...</p>
+                            <div className="flex flex-col items-center gap-4">
+                                <div className="relative">
+                                    <div className="animate-spin rounded-full h-12 w-12 border-3 border-blue-400/30 border-t-blue-500"></div>
+                                </div>
+                                <p className="text-white/60 text-sm">Loading conversation...</p>
                             </div>
                         </div>
                     ) : messages.length === 0 ? (
                         <div className="flex flex-col items-center justify-center h-full text-center max-w-2xl mx-auto">
+                            {/* Welcome Avatar */}
                             <div className="relative mb-8">
-                                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full blur-2xl opacity-50 animate-pulse"></div>
-                                <div className="relative w-28 h-28 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-500">
-                                    <span className="text-5xl">🤖</span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl blur-2xl opacity-60 animate-pulse"></div>
+                                <div className="relative w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-500">
+                                    <span className="text-4xl">✨</span>
                                 </div>
                             </div>
+                            
                             <h2 className="text-3xl font-bold text-white mb-3">
-                                Welcome to AVA!
+                                Welcome to AVA
                             </h2>
-                            <p className="text-white/60 max-w-md mb-8 text-lg">
+                            <p className="text-white/60 max-w-md mb-10 text-base">
                                 Your intelligent virtual assistant, ready to help you 24/7
                             </p>
+                            
+                            {/* Suggestion Chips */}
                             <div className="flex flex-wrap gap-3 justify-center">
-                                {["💬 What can you do?", "😂 Tell me a joke", "🕐 What's the time?", "🎯 Help me"].map((suggestion) => (
+                                {[
+                                    { emoji: "💬", text: "What can you do?" },
+                                    { emoji: "😂", text: "Tell me a joke" },
+                                    { emoji: "🕐", text: "What's the time?" },
+                                    { emoji: "🎯", text: "Help me with coding" }
+                                ].map((suggestion) => (
                                     <button
-                                        key={suggestion}
+                                        key={suggestion.text}
                                         onClick={() => {
-                                            const cleanText = suggestion.replace(/[😂💬🕐🎯]/g, '').trim();
-                                            setInputMessage(cleanText);
+                                            setInputMessage(suggestion.text);
                                             setTimeout(() => {
                                                 inputRef.current?.focus();
                                             }, 100);
                                         }}
-                                        className="px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 hover:border-blue-400 hover:bg-white/20 rounded-full text-sm text-white transition-all duration-300 shadow-sm"
+                                        className="group px-5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-400/50 hover:bg-white/10 rounded-full text-sm text-white/80 hover:text-white transition-all duration-300"
                                     >
-                                        {suggestion}
+                                        <span className="mr-1">{suggestion.emoji}</span>
+                                        {suggestion.text}
                                     </button>
                                 ))}
                             </div>
+                            
+                            {/* Features Grid */}
+                            <div className="grid grid-cols-2 gap-4 mt-12 pt-8 border-t border-white/10 max-w-lg">
+                                <div className="text-center">
+                                    <div className="text-2xl mb-2">⚡</div>
+                                    <p className="text-white/60 text-xs">Instant Responses</p>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-2xl mb-2">🔒</div>
+                                    <p className="text-white/60 text-xs">Secure & Private</p>
+                                </div>
+                            </div>
                         </div>
                     ) : (
-                        <div className="max-w-4xl mx-auto space-y-4">
+                        <div className="max-w-4xl mx-auto">
                             {messages.map((msg, idx) => (
                                 <ChatMessage 
                                     key={idx} 
@@ -322,16 +295,16 @@ const Chat = () => {
                     <div ref={messagesEndRef} />
                 </div>
 
-                {/* Input Area - Glassmorphism */}
-                <div className="bg-white/10 backdrop-blur-xl border-t border-white/20 shadow-2xl">
-                    <div className="max-w-4xl mx-auto px-4 py-4">
-                        <form onSubmit={sendMessage} className="flex gap-2 items-end">
+                {/* Input Area - Professional Glassmorphism */}
+                <div className="bg-gradient-to-t from-black/20 via-transparent to-transparent">
+                    <div className="max-w-4xl mx-auto px-6 py-5">
+                        <form onSubmit={sendMessage} className="flex gap-3 items-end">
                             <div className="flex-1 relative group">
                                 <div className="absolute left-3 bottom-3 flex items-center gap-1">
-                                    <button type="button" className="p-2 text-white/50 hover:text-white hover:bg-white/10 transition-colors rounded-full">
+                                    <button type="button" className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 transition-all rounded-lg">
                                         <FiPaperclip size={18} />
                                     </button>
-                                    <button type="button" className="p-2 text-white/50 hover:text-white hover:bg-white/10 transition-colors rounded-full">
+                                    <button type="button" className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 transition-all rounded-lg">
                                         <FiSmile size={18} />
                                     </button>
                                 </div>
@@ -347,7 +320,7 @@ const Chat = () => {
                                         }
                                     }}
                                     placeholder="Type your message..."
-                                    className="w-full pl-24 pr-4 py-3 bg-white/20 border border-white/30 rounded-2xl focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 text-base resize-none overflow-hidden text-white placeholder-white/50"
+                                    className="w-full pl-24 pr-12 py-3 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-blue-500/50 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-base resize-none overflow-hidden text-white placeholder-white/30"
                                     disabled={isTyping}
                                     style={{ minHeight: '52px', maxHeight: '150px' }}
                                     onInput={(e) => {
@@ -358,7 +331,7 @@ const Chat = () => {
                                 <div className="absolute right-3 bottom-3">
                                     <button
                                         type="button"
-                                        className="p-2 text-white/50 hover:text-white hover:bg-white/10 transition-colors rounded-full"
+                                        className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 transition-all rounded-lg"
                                     >
                                         <FiMic size={18} />
                                     </button>
@@ -367,30 +340,18 @@ const Chat = () => {
                             <button
                                 type="submit"
                                 disabled={!inputMessage.trim() || isTyping}
-                                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl px-6 py-3 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-semibold shadow-lg shadow-blue-500/30 hover:shadow-xl hover:scale-105 transform"
+                                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl px-6 py-3 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-105 transform"
                             >
                                 <FiSend size={18} />
-                                <span className="hidden sm:inline">Send</span>
+                                <span className="hidden sm:inline text-sm">Send</span>
                             </button>
                         </form>
-                        <p className="text-xs text-white/40 text-center mt-3">
-                            Press Enter to send • Shift + Enter for new line • Powered by AVA AI
+                        <p className="text-white/30 text-xs text-center mt-3">
+                            Press Enter to send • Shift + Enter for new line
                         </p>
                     </div>
                 </div>
             </div>
-
-            {/* Add Custom Animations */}
-            <style jsx>{`
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px) translateX(0px); }
-                    25% { transform: translateY(-10px) translateX(5px); }
-                    75% { transform: translateY(10px) translateX(-5px); }
-                }
-                .animate-float {
-                    animation: float 8s ease-in-out infinite;
-                }
-            `}</style>
         </div>
     );
 };
