@@ -356,7 +356,7 @@ const Chat = () => {
                                         }
                                     }}
                                     placeholder="Ask anything..."
-                                    className="w-full pl-[62px] sm:pl-[72px] pr-8 sm:pr-10 lg:py-1.5 py-2.5 sm:py-2.5 bg-white/10 border border-white/20 rounded-3xl focus:outline-none focus:border-blue-500/50 focus:bg-white/15 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base resize-none overflow-hidden text-white placeholder-white/40"
+                                    className="w-full pl-[62px] sm:pl-[72px] pr-8 sm:pr-10 lg:py-1.5 py-2.5 sm:py-2 bg-white/10 border border-white/20 rounded-3xl focus:outline-none focus:border-blue-500/50 focus:bg-white/15 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base resize-none overflow-hidden text-white placeholder-white/40"
                                     disabled={isTyping}
                                     style={{ minHeight: '44px', maxHeight: '100px' }}
                                 />
