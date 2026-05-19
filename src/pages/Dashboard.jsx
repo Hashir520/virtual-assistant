@@ -37,7 +37,7 @@ const Dashboard = () => {
             icon: <FiDatabase className="w-8 h-8 text-purple-600" />,
             title: "Chat History",
             description: "View all your previous conversations",
-            action: () => navigate('/chat'),
+            // action: () => navigate('/chat'),
             color: "bg-purple-50 hover:bg-purple-100",
             border: "border-purple-200"
         },
