@@ -219,7 +219,7 @@ const Chat = () => {
                                 </div>
                                 <div>
                                     <h1 className="text-white font-semibold text-sm sm:text-base">
-                                        AVA<span className='hidden sm:inline p-2'>Assistant</span>
+                                        AVA<span className='hidden sm:inline p-2'>Automated Virtual Assistant</span>
                                     </h1>
                                 </div>
                             </div>
@@ -338,7 +338,7 @@ const Chat = () => {
                                     </button>
                                     <button 
                                         type="button" 
-                                        className="text-white/40 p-1.5 hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
+                                        className="text-white/40  hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
                                         aria-label="Add emoji"
                                     >
                                         <FiSmile size={14} className="sm:w-4 sm:h-4" />
