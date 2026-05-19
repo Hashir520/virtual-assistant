@@ -194,42 +194,43 @@ const Chat = () => {
             {/* Main Chat Area - Fixed height container */}
             <div className="flex-1 flex flex-col w-full lg:ml-0 overflow-hidden relative z-10 h-full">
                 {/* Header - Fixed at top */}
-                <div className="bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-xl flex-shrink-0" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-                    <div className="px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
-                        <div className="flex items-center gap-2 sm:gap-3">
-                            <button 
-                                onClick={() => setSidebarOpen(true)}
-                                className="lg:hidden text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-all duration-300 active:scale-95 -ml-1"
-                                aria-label="Open menu"
-                            >
-                                <FiMenu size={20} />
-                            </button>
-                            <div className="flex items-center gap-2 sm:gap-3">
-                                <div className="relative">
-                                    <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                                        <span className="text-white font-bold text-sm sm:text-base">A</span>
-                                    </div>
-                                    <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-emerald-500 rounded-full border-2 border-white/20 animate-pulse" />
-                                </div>
-                                <div>
-                                    <h1 className="text-white font-semibold text-sm sm:text-base">AVA<span className='p-2 hidden sm:inline'>Assistant</span></h1>
-                                    {/* <p className="text-white/50 text-[10px] sm:text-xs">AI Ready • 24/7 Online</p> */}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-0.5 sm:gap-1">
-                            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
-                                <FiHelpCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
-                            </button>
-                            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
-                                <FiInfo size={16} className="sm:w-[18px] sm:h-[18px]" />
-                            </button>
-                            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
-                                <FiMoreVertical size={16} className="sm:w-[18px] sm:h-[18px]" />
-                            </button>
-                        </div>
+                <div className="bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-xl flex-shrink-0 sticky top-0 z-20" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+    <div className="px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2 sm:gap-3">
+            <button 
+                onClick={() => setSidebarOpen(true)}
+                className="lg:hidden text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-all duration-300 active:scale-95 -ml-1"
+                aria-label="Open menu"
+            >
+                <FiMenu size={20} />
+            </button>
+            <div className="flex items-center gap-2 sm:gap-3">
+                <div className="relative">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                        <span className="text-white font-bold text-sm sm:text-base">A</span>
                     </div>
+                    <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-emerald-500 rounded-full border-2 border-white/20 animate-pulse" />
                 </div>
+                <div>
+                    <h1 className="text-white font-semibold text-sm sm:text-base">
+                        AVA<span className='hidden sm:inline p-2'>Assistant</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div className="flex items-center gap-0.5 sm:gap-1">
+            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
+                <FiHelpCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
+            </button>
+            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
+                <FiInfo size={16} className="sm:w-[18px] sm:h-[18px]" />
+            </button>
+            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
+                <FiMoreVertical size={16} className="sm:w-[18px] sm:h-[18px]" />
+            </button>
+        </div>
+    </div>
+</div>
 
                 {/* Messages Area - This will scroll internally */}
                 <div className="flex-1 overflow-y-auto min-h-0">
