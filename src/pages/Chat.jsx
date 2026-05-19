@@ -21,6 +21,7 @@ const Chat = () => {
     const [isMobile, setIsMobile] = useState(false);
     const messagesEndRef = useRef(null);
     const textareaRef = useRef(null);
+    const messagesContainerRef = useRef(null);
 
     // Detect mobile screen
     useEffect(() => {
@@ -49,10 +50,15 @@ const Chat = () => {
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages]);
+    }, [messages, isTyping]);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTo({
+                top: messagesContainerRef.current.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
     };
 
     const loadChat = async (id) => {
@@ -191,50 +197,57 @@ const Chat = () => {
                 />
             )}
             
-            {/* Main Chat Area - Fixed height container */}
+            {/* Main Chat Area - Fixed header and input, scrollable messages */}
             <div className="flex-1 flex flex-col w-full lg:ml-0 overflow-hidden relative z-10 h-full">
                 {/* Header - Fixed at top */}
-                <div className="bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-xl flex-shrink-0 sticky top-0 z-20" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-    <div className="px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2 sm:gap-3">
-            <button 
-                onClick={() => setSidebarOpen(true)}
-                className="lg:hidden text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-all duration-300 active:scale-95 -ml-1"
-                aria-label="Open menu"
-            >
-                <FiMenu size={20} />
-            </button>
-            <div className="flex items-center gap-2 sm:gap-3">
-                <div className="relative">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                        <span className="text-white font-bold text-sm sm:text-base">A</span>
+                <div className="bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-xl flex-shrink-0 sticky top-0 z-20">
+                    <div className="px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                            <button 
+                                onClick={() => setSidebarOpen(true)}
+                                className="lg:hidden text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-all duration-300 active:scale-95 -ml-1"
+                                aria-label="Open menu"
+                            >
+                                <FiMenu size={20} />
+                            </button>
+                            <div className="flex items-center gap-2 sm:gap-3">
+                                <div className="relative">
+                                    <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                                        <span className="text-white font-bold text-sm sm:text-base">A</span>
+                                    </div>
+                                    <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-emerald-500 rounded-full border-2 border-white/20 animate-pulse" />
+                                </div>
+                                <div>
+                                    <h1 className="text-white font-semibold text-sm sm:text-base">
+                                        AVA<span className='hidden sm:inline p-2'>Assistant</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-0.5 sm:gap-1">
+                            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
+                                <FiHelpCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
+                            </button>
+                            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
+                                <FiInfo size={16} className="sm:w-[18px] sm:h-[18px]" />
+                            </button>
+                            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
+                                <FiMoreVertical size={16} className="sm:w-[18px] sm:h-[18px]" />
+                            </button>
+                        </div>
                     </div>
-                    <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-emerald-500 rounded-full border-2 border-white/20 animate-pulse" />
                 </div>
-                <div>
-                    <h1 className="text-white font-semibold text-sm sm:text-base">
-                        AVA<span className='hidden sm:inline p-2'>Assistant</span>
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <div className="flex items-center gap-0.5 sm:gap-1">
-            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
-                <FiHelpCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
-            </button>
-            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
-                <FiInfo size={16} className="sm:w-[18px] sm:h-[18px]" />
-            </button>
-            <button className="p-1.5 sm:p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-95">
-                <FiMoreVertical size={16} className="sm:w-[18px] sm:h-[18px]" />
-            </button>
-        </div>
-    </div>
-</div>
 
-                {/* Messages Area - This will scroll internally */}
-                <div className="flex-1 overflow-y-auto min-h-0">
-                    <div className="px-2 sm:px-4 py-3 sm:py-4">
+                {/* Messages Area - This will scroll - FIXED: Proper scrollable container */}
+                <div 
+                    ref={messagesContainerRef}
+                    className="flex-1 overflow-y-auto min-h-0 scroll-smooth"
+                    style={{ 
+                        WebkitOverflowScrolling: 'touch',
+                        scrollBehavior: 'smooth'
+                    }}
+                >
+                    <div className="px-2 sm:px-4 py-3 sm:py-4 pb-4">
                         {loading ? (
                             <div className="flex justify-center items-center h-full min-h-[200px]">
                                 <div className="flex flex-col items-center gap-3 sm:gap-4">
@@ -304,78 +317,62 @@ const Chat = () => {
                                     />
                                 ))}
                                 {isTyping && <TypingIndicator />}
+                                <div ref={messagesEndRef} />
                             </div>
                         )}
-                        <div ref={messagesEndRef} />
                     </div>
                 </div>
 
                 {/* Input Area - Fixed at bottom */}
-                <div className="flex-shrink-0" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-                    <div className="bg-gradient-to-t from-black/20 via-transparent to-transparent">
-                        <div className="max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-3">
-                            <form onSubmit={sendMessage} className="flex gap-2 sm:gap-3 items-end">
-                                <div className="flex-1 relative group">
-                                    <div className="absolute left-1.5 sm:left-2 bottom-2 flex items-center gap-0.5 sm:gap-1">
-                                        <button 
-                                            type="button" 
-                                            className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
-                                            aria-label="Attach file"
-                                        >
-                                            <FiPaperclip size={14} className="sm:w-4 sm:h-4" />
-                                        </button>
-                                        <button 
-                                            type="button" 
-                                            className=" text-white/40 py-2.5 hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
-                                            aria-label="Add emoji"
-                                        >
-                                            <FiSmile size={14} className="sm:w-4 sm:h-4" />
-                                        </button>
-                                    </div>
-                                    <textarea
-                                        ref={textareaRef}
-                                        rows={1}
-                                        value={inputMessage}
-                                        onChange={handleTextareaInput}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter' && !e.shiftKey) {
-                                                e.preventDefault();
-                                                sendMessage(e);
-                                            }
-                                        }}
-                                        placeholder="Ask anything"
-                                        className="w-full pl-[62px] sm:pl-[72px] pr-8 sm:pr-10 py-2 sm:py-1.5  bg-white/10 border border-white/20 rounded-2xl focus:outline-none focus:border-blue-500/50 focus:bg-white/15 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base resize-none overflow-hidden text-white placeholder-white/40"
-                                        disabled={isTyping}
-                                        style={{ minHeight: '40px', maxHeight: '100px' }}
-                                        onInput={(e) => {
-                                            const target = e.target;
-                                            target.style.height = 'auto';
-                                            target.style.height = Math.min(target.scrollHeight, 100) + 'px';
-                                        }}
-                                    />
-                                    
-                                    {/* <button
-                                        type="button"
-                                        className="absolute right-1.5 sm:right-2 bottom-1.5 p-1.5  text-white/40 hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
-                                        aria-label="Voice input"
+                <div className="flex-shrink-0 bg-gradient-to-t from-black/30 via-transparent to-transparent">
+                    <div className="max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-3">
+                        <form onSubmit={sendMessage} className="flex gap-2 sm:gap-3 items-end">
+                            <div className="flex-1 relative group">
+                                <div className="absolute left-1.5 sm:left-2 py-1.5 bottom-2 flex items-center gap-0.5 sm:gap-1">
+                                    <button 
+                                        type="button" 
+                                        className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
+                                        aria-label="Attach file"
                                     >
-                                        <FiMic size={14} className="sm:w-4 sm:h-4 " />
-                                    </button> */}
-                                    
+                                        <FiPaperclip size={14} className="sm:w-4 sm:h-4" />
+                                    </button>
+                                    <button 
+                                        type="button" 
+                                        className="text-white/40 p-1.5 hover:text-white hover:bg-white/10 transition-all rounded-lg active:scale-95"
+                                        aria-label="Add emoji"
+                                    >
+                                        <FiSmile size={14} className="sm:w-4 sm:h-4" />
+                                    </button>
                                 </div>
-                                <button
-                                    type="submit"
-                                    disabled={!inputMessage.trim() || isTyping}
-                                    className="bg-gradient-to-r from-blue-600 to-indigo-600 mb-2  text-white rounded-2xl px-2 sm:px-4 py-2 sm:py-2.5 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 sm:gap-2 font-medium shadow-lg shadow-blue-500/20 hover:shadow-xl active:scale-95 transform flex-shrink-0 "
-                                    aria-label="Send message">
-                                    <FiSend size={14} className="sm:w-4 sm:h-4" />
-                                    <span className="hidden xs:inline  text-xs sm:text-sm">Send</span>
-                                </button>
-                            </form>
-                            <p className="text-white/30 text-[9px] sm:text-[10px] text-center mt-1.5 sm:mt-2">
-                                Press Enter to send • Shift + Enter for new line
-                            </p>
-                        </div>
+                                <textarea
+                                    ref={textareaRef}
+                                    rows={1}
+                                    value={inputMessage}
+                                    onChange={handleTextareaInput}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' && !e.shiftKey) {
+                                            e.preventDefault();
+                                            sendMessage(e);
+                                        }
+                                    }}
+                                    placeholder="Ask anything..."
+                                    className="w-full pl-[62px] sm:pl-[72px] pr-8 sm:pr-10 lg:py-1.5 py-2.5 sm:py-2.5 bg-white/10 border border-white/20 rounded-3xl focus:outline-none focus:border-blue-500/50 focus:bg-white/15 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base resize-none overflow-hidden text-white placeholder-white/40"
+                                    disabled={isTyping}
+                                    style={{ minHeight: '44px', maxHeight: '100px' }}
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={!inputMessage.trim() || isTyping}
+                                className="bg-gradient-to-r from-blue-600 mb-2 to-indigo-600 text-white rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 sm:gap-2 font-medium shadow-lg shadow-blue-500/20 hover:shadow-xl active:scale-95 transform flex-shrink-0"
+                                aria-label="Send message">
+                                <FiSend size={16} className="sm:w-4 sm:h-4" />
+                                <span className="hidden xs:inline text-sm">Send</span>
+                            </button>
+                        </form>
+                        <p className="text-white/30 text-[10px] text-center mt-2">
+                            Press Enter to send • Shift + Enter for new line
+                        </p>
                     </div>
                 </div>
             </div>
@@ -403,7 +400,6 @@ const Chat = () => {
                 /* Better touch scrolling on mobile */
                 .overflow-y-auto {
                     -webkit-overflow-scrolling: touch;
-                    scroll-behavior: smooth;
                 }
                 
                 /* Adjust textarea for mobile */
@@ -411,6 +407,11 @@ const Chat = () => {
                     textarea {
                         font-size: 16px !important; /* Prevents zoom on focus in iOS */
                     }
+                }
+                
+                /* Smooth scrolling for messages container */
+                .scroll-smooth {
+                    scroll-behavior: smooth;
                 }
             `}</style>
         </div>
